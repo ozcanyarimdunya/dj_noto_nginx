@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel=icon href="{% static 'app/img/site.png' %}">
+
+  <link rel="stylesheet" href="{% static 'app/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'app/css/site.css' %}">
+  <title>No to Nginx!</title>
+  {% block style %}
+  {% endblock style %}
+</head>
+<body>
+<div class="content px-5">
+  <h2 class="title">No to <strong>Nginx!</strong></h2>
+  <hr>
+  {% block content %}
+
+  {% endblock content %}
+</div>
+
+<script src="{% static 'app/js/jquery-3.3.1.slim.min.js' %}"></script>
+<script src="{% static 'app/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'app/js/site.js' %}"></script>
+{% block script %}
+{% endblock script %}
+</body>
+</html>

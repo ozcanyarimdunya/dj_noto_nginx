@@ -1,0 +1,18 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
+.content {
+    margin: 2rem auto;
+    padding: 1rem;
+    min-height: 10rem;
+}
+
+.title {
+    text-align: center;
+}

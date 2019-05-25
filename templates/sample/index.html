@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <a href="{% url 'sample:upload' %}" class="btn btn-outline-primary mb-1">Upload</a>
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">File</th>
+      <th scope="col">Created</th>
+      <th scope="col">Updated</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for obj in object_list %}
+      <tr>
+        <th scope="row">{{ obj.pk }}</th>
+        <td>
+          <a href="{{ obj.file.url }}">
+            <img src="{{ obj.file.url }}" alt="Path" width="50" height="50">
+          </a>
+        </td>
+        <td>{{ obj.created }}</td>
+        <td>{{ obj.updated }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}
