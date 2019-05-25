@@ -1,10 +1,11 @@
 import os
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'c_-04e2ia6%4*tfk2zj-h8%hml=-hx17d*y=k1kwp1t!bsa^-8'
 
-DEBUG = os.getenv('MODE', 'LOCAL') == 'LOCAL'
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -89,3 +90,7 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if os.getenv('MODE') == 'PRODUCTION':
+    DEBUG = False
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)  # search for env: `DATABASE_URL`

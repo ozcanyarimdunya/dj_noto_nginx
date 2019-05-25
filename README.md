@@ -3,6 +3,8 @@
 Serve your static files with `whitenoise` and media files with
 `dj-static` in production mode.
 
+Live demo: [https://no-to-nginx.herokuapp.com/](https://no-to-nginx.herokuapp.com/)
+
 ## Usage
 
 Change below files:
@@ -29,6 +31,10 @@ STATICFILES_DIRS = [
 ]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if os.getenv('MODE') == 'PRODUCTION':
+    DEBUG = False
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600)  # search for env: `DATABASE_URL`
 ```
 
 ## Run with **docker-compose**
